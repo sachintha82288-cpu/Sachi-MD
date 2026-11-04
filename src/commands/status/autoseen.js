@@ -1,0 +1,2 @@
+const status = require('../../services/status/manager');
+module.exports = { name:'autoseen', aliases:['statusseen'], category:'status', emoji:'👀', description:'Turn automatic status seen on or off', ownerOnly:true, mainOnly: true, execute:async ctx=>{const v=String(ctx.args[0]||'').toLowerCase();if(!['on','off'].includes(v))return ctx.reply({text:`Usage: ${ctx.prefix}autoseen on|off\nCurrent: ${status.getSettings().autoSeen?'ON':'OFF'}`});const s=status.setAutoSeen(v==='on');await ctx.reply({text:`${s.autoSeen?'🟢':'⚪'} Auto Status Seen: *${s.autoSeen?'ON':'OFF'}*`});}};

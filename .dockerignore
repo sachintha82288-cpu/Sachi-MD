@@ -1,0 +1,15 @@
+node_modules
+sessions
+data/tmp
+data/*.json
+data/tls
+data/branding
+bin
+*.log
+.env
+.env.*
+!.env.example
+.git
+.github
+tests
+*.zip
