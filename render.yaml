@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: sachi-md
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: BOT_NAME
+        value: Sachi MD
+      - key: BOT_PREFIX
+        value: "."
+      - key: BOT_MODE
+        value: all
+      - key: MENU_BUTTONS
+        value: "true"
+      - key: WA_ASK_PHONE
+        value: never
+      # Set these in the Render dashboard (they are secrets / your own values)
+      - key: WA_PHONE_NUMBER
+        sync: false
+      - key: STATUS_TOKEN
+        generateValue: true
+      - key: PAIR_MODE
+        value: public
+      - key: PROXY_ENABLED
+        value: "true"
+      - key: V2RAY_SUB_URL
+        sync: false
