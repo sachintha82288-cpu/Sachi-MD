@@ -1,0 +1,1 @@
+module.exports={name:'gitstatus',category:'tools',emoji:'🔧',description:'Show runtime and proxy diagnostics',execute:async({reply})=>reply({text:`🔧 *Runtime*\n\nNode: ${process.version}\nPlatform: ${process.platform}\nPID: ${process.pid}\nMemory: ${(process.memoryUsage().rss/1048576).toFixed(1)} MB`})};

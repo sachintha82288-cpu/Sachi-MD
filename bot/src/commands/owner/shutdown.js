@@ -1,0 +1,1 @@
+module.exports={name:'shutdown',aliases:['stop'],category:'owner',emoji:'⏹️',description:'Stop the bot process',ownerOnly:true, mainOnly: true,execute:async({reply})=>{await reply({text:'⏹️ Shutting down...'});setTimeout(()=>process.exit(0),500);}};

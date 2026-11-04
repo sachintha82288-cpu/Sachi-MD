@@ -1,0 +1,1 @@
+module.exports={name:'groupinfo',aliases:['ginfo'],category:'group',emoji:'ℹ️',description:'Show group information',groupOnly:true,execute:async({sock,jid,reply})=>{const m=await sock.groupMetadata(jid);await reply({text:`👥 *${m.subject}*\n\n👤 Members: ${m.participants.length}\n👑 Admins: ${m.participants.filter(p=>p.admin).length}\n📝 ${m.desc||'No description'}`});}};

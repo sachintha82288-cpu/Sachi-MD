@@ -1,0 +1,4 @@
+const test=require('node:test');const assert=require('node:assert/strict');const {parseSubscription,parseVmess,parseVless}=require('../src/services/proxy/parser');
+test('parses vmess links',()=>{const raw=Buffer.from(JSON.stringify({ps:'demo',add:'1.2.3.4',port:443,id:'00000000-0000-0000-0000-000000000000',net:'ws',tls:'tls',host:'example.com',path:'/ws'})).toString('base64');const x=parseVmess('vmess://'+raw);assert.equal(x.address,'1.2.3.4');assert.equal(x.network,'ws');});
+test('parses vless links',()=>{const x=parseVless('vless://id@example.com:443?type=ws&security=tls&sni=example.com#demo');assert.equal(x.protocol,'vless');assert.equal(x.address,'example.com');assert.equal(x.network,'ws');});
+test('parses mixed subscription text',()=>{const vm=Buffer.from(JSON.stringify({add:'a.example',port:443,id:'id'})).toString('base64');const out=parseSubscription(`vmess://${vm}\nvless://id@b.example:443?security=tls`);assert.equal(out.length,2);});

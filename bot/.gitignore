@@ -1,0 +1,13 @@
+node_modules/
+sessions/
+data/tmp/
+data/xray-*.json
+data/menu-capabilities.json
+data/settings.json
+data/branding/
+bin/yt-dlp
+bin/ffmpeg
+bin/xray
+bin/*.zip
+*.log
+.env
